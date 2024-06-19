@@ -3,7 +3,7 @@
   "method": "starknet_getBlockWithTxs",
   "params": {
     "block_id": {
-      "block_number": "?"
+      "block_number": ?
     }
   },
   "id": 0
