@@ -7,7 +7,12 @@
         static HttpFunctions()
         {
             // Set the base url
-            httpClient.BaseAddress = new Uri("https://starknet-sepolia.infura.io/v3/" + Helper.GetEnvVar("INFURA_APIKEY"));
+            string apikey = Helper.GetEnvVar("INFURA_APIKEY");
+            if (string.IsNullOrEmpty(apikey))
+            {
+                throw new InvalidDataException("Can't find environment variable INFURA_APIKEY");
+            }
+            httpClient.BaseAddress = new Uri($"https://starknet-sepolia.infura.io/v3/{apikey}");
         }
 
         /// <summary> Get block by id, async  </summary>
