@@ -8,7 +8,9 @@ Three parts:
 * GUI program, calls the API library and provides results graphically
 
 # Status
-A basic console program is working.
+A basic console program is working:
+
+![Screenshot](./Images/Screenshot01.png)
 
 
 ## Infura API key
