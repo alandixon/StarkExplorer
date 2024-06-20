@@ -7,6 +7,10 @@ Three parts:
 * Console program, calls the API library and provides results on the command line
 * GUI program, calls the API library and provides results graphically
 
+# Status
+A basic console program is working.
+
+
 ## Infura API key
 Stark data is fetched via the [Infura Starknet API](https://docs.infura.io/api/networks/starknet).
 I have used a [free Infura account](https://www.infura.io/pricing) that gives

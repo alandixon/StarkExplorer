@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StarkExplorerLib
 {
-    internal class Helper
+    public class Helper
     {
-        internal static string GetEnvVar(string envvarName)
+        public static string GetEnvVar(string envvarName)
         {
             return Environment.GetEnvironmentVariable(envvarName);
         }
