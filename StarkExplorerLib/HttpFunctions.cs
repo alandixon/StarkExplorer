@@ -1,14 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http.Json;
-using System.Text.Json;
-using System.Net.Http;
-
-namespace StarkExplorerLib
+﻿namespace StarkExplorerLib
 {
     public class HttpFunctions
     {
@@ -16,10 +6,14 @@ namespace StarkExplorerLib
 
         static HttpFunctions()
         {
+            // Set the base url
             httpClient.BaseAddress = new Uri("https://starknet-sepolia.infura.io/v3/" + Helper.GetEnvVar("INFURA_APIKEY"));
-            // httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
         }
 
+        /// <summary> Get block by id, async  </summary>
+        /// <param name="blockNum"></param>
+        /// <returns>Response task encapsulating the block</returns>
+        /// <exception cref="HttpRequestException"></exception>
         public async static Task<HttpResponseMessage> GetBlockByNum(int blockNum)
         {
             string getBlockByNumJson = File.ReadAllText(@"Requests\GetBlockByNum.json");
@@ -33,6 +27,9 @@ namespace StarkExplorerLib
             return response;
         }
 
+        /// <summary> Get the latest block number, async </summary>
+        /// <returns>Response task encapsulating the block number</returns>
+        /// <exception cref="HttpRequestException"></exception>
         public async static Task<HttpResponseMessage> GetLastBlockNum()
         {
             string getLastBlockNumJson =File.ReadAllText(@"Requests\GetLastBlockNum.json");

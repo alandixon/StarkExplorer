@@ -3,6 +3,6 @@ namespace StarkExplorerLib.Artefacts
 {
     public abstract class Artefact
     {
-        public int Id { get; set; }
+        public int DbId { get; set; }
     }
 }
