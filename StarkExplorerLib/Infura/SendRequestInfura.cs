@@ -75,6 +75,23 @@ namespace StarkExplorerLib.Infura
                 throw new SerializationException($"GetBlockByNum() for id={blockNum} couldn't deserialize json string");
             return jsonBlock.Block;
         }
+
+        public static Block GetTransaction(string blockNum, string transactionNum)
+        {
+            Task<HttpResponseMessage> task = HttpFunctions.GetTransaction(blockNum, transactionNum);
+            Stream jsonStream = task.Result.Content.ReadAsStream();
+            string? json;
+            JsonBlock? jsonBlock = null;
+            using (StreamReader streamReader = new StreamReader(jsonStream))
+            {
+                json = streamReader.ReadToEnd() ??
+                    throw new NullReferenceException($"GetTransaction() for id={blockNum}, transaction={transactionNum} returned null or empty json string");
+            }
+
+            jsonBlock = JsonConvert.DeserializeObject<JsonBlock>(json) ??
+                throw new SerializationException($"GetTransaction() for id={blockNum}, transaction={transactionNum} couldn't deserialize json string");
+            return jsonBlock.Block;
+        }
     }
 
 }

@@ -10,8 +10,11 @@ Three parts:
 # Status
 A basic console program is working:
 
+Showing the latest block
 ![Screenshot](./Images/Screenshot01.png)
 
+Showing a block with transactions
+![Screenshot](./Images/Screenshot02.png)
 
 ## Infura API key
 Stark data is fetched via the [Infura Starknet API](https://docs.infura.io/api/networks/starknet).

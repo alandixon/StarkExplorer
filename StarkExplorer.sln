@@ -14,9 +14,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3CCD9263-CF09-469D-83C0-6B0E24893EB3}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		Images\Screenshot01.png = Images\Screenshot01.png
+		Images\Screenshot02.png = Images\Screenshot02.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarkExplorerDB", "StarkExplorerDB\StarkExplorerDB.csproj", "{2C7A11C3-A4E7-42E3-A3D9-4BCE0F06F113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarkExplorerDB", "StarkExplorerDB\StarkExplorerDB.csproj", "{2C7A11C3-A4E7-42E3-A3D9-4BCE0F06F113}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

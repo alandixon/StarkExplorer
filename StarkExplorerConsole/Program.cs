@@ -17,12 +17,14 @@ namespace StarkExplorerConsole
         private static RootCommand SetCmdLineOptions()
         {
             var rootCommand = new RootCommand();
+
+            // GET
             var getCommand = new Command("get", "Get the specified item");
-            //getCommand.AddAlias("GET");
             rootCommand.Add(getCommand);
 
+            // BLOCK
             var blockCommand = new Command("block", "Get the specified block");
-            //blockCommand.AddAlias("BLOCK");
+            blockCommand.AddAlias("b");
             getCommand.Add(blockCommand);
 
             var blockIdentifierArgument = new Argument<string>
@@ -38,6 +40,33 @@ namespace StarkExplorerConsole
                 var tokens = blockIdentifierArgument.ParseResult.Tokens;
                 string blockNum = tokens.Count < 3 ? string.Empty : tokens[2].ToString();
                 PrintBlock(SendRequestInfura.GetBlock(blockNum));
+            });
+
+            // TRANSACTION
+            var transactionCommand = new Command("transaction", "Get the specified transaction");
+            transactionCommand.AddAlias("t");
+            transactionCommand.AddAlias("x");
+            getCommand.Add(transactionCommand);
+
+            var blockIdentifierArgument2 = new Argument<string>
+                (name: "blockIdentifier",
+                description: "Block number");
+            transactionCommand.AddArgument(blockIdentifierArgument2);
+
+            var transactionIdentifierArgument = new Argument<string>
+                (name: "transactionIdentifier",
+                description: "Transaction number",
+                getDefaultValue: () => string.Empty);
+            transactionCommand.AddArgument(transactionIdentifierArgument);
+
+            // Set the handler to fetch the defined transaction
+            transactionCommand.SetHandler((transactionIdentifierArgument) =>
+            {
+                // Four tokens:  get -> transaction -> blocknum -> transactionnum
+                var tokens = transactionIdentifierArgument.ParseResult.Tokens;
+                string blockNum = tokens[2].ToString();
+                string transactionNum = tokens[3].ToString();
+                PrintBlock(SendRequestInfura.GetTransaction(blockNum, transactionNum));
             });
 
             return rootCommand;
@@ -88,6 +117,13 @@ namespace StarkExplorerConsole
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine($"{block.Transactions.Count()}");
 
+                for (int i = 0; i < block.Transactions.Count(); i++)
+                {
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.Write($"[{i}]: ");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine($"{block.Transactions[i].TransactionHash}");
+                }
             }
             catch (Exception ex)
             {

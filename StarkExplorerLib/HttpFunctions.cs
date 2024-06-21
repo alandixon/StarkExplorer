@@ -46,5 +46,19 @@
             return response;
         }
 
+        internal static async Task<HttpResponseMessage> GetTransaction(string blockNum, string transactionNum)
+        {
+            string getBlockByNumJson = File.ReadAllText(@"Requests\GetTransaction.json");
+            // Insert blockNum into request json
+            string jsonWithBlockNum = getBlockByNumJson.Replace("?", blockNum.ToString());
+            string jsonWithBlockNumAndTransactionNum = jsonWithBlockNum.Replace("*", transactionNum.ToString());
+            HttpResponseMessage response = await httpClient.PostAsync(httpClient.BaseAddress, new StringContent(jsonWithBlockNumAndTransactionNum));
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException();
+            }
+            return response;
+
+        }
     }
 }
