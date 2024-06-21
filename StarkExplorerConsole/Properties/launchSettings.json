@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "StarkExplorerConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "get block 1"
+    }
+  }
+}
