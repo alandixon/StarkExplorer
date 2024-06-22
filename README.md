@@ -14,10 +14,10 @@ Showing a block with transactions
 # Future work
 * Develop the StarkExplorerLib library to retrieve more data such as Events and Contracts
 * Develop a GUI to allow easier user access
-* Store retrived data in a local cache dB and check for local presence before requesitng new data
+* Store retrived data in a local cache dB and check for local presence before requesting new data
 * Develop analysis functionality: I like the concepts and abilities of [Chainalysis](https://www.chainalysis.com/).
 
-## Infura API key
+# Infura API key
 Stark data is fetched via the [Infura Starknet API](https://docs.infura.io/api/networks/starknet).
 I have used a [free Infura account](https://www.infura.io/pricing) that gives
 * 1 API key
@@ -35,7 +35,7 @@ Specifically, the Starknet endpoints:
 Select MAINNET for Live and/or SEPOLIA for testing.
 
 
-## Credits
+# Credits
 
 | Library  | Function  | Link  |
 | --- | ---   |  --- |
