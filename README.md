@@ -1,6 +1,7 @@
 # StarkExplorer
 
 A tool to view and analyse transactions, blockchain metrics and other data, using the Infura API.<br>
+Inspired to some extent by [StarkScan](https://starkscan.co/) and [Etherscan](https://etherscan.io/).
 
 # Status
 A basic console program is working. This has been tested on Windows but should also work on Linux and MacOs.<br>
@@ -12,10 +13,11 @@ Showing a block with transactions
 ![Screenshot](./Images/Screenshot02.png)
 
 # Future work
-* Develop the StarkExplorerLib library to retrieve more data such as Events and Contracts
-* Develop a GUI to allow easier user access
-* Store retrived data in a local cache dB and check for local presence before requesting new data
-* Develop analysis functionality: I like the concepts and abilities of [Chainalysis](https://www.chainalysis.com/).
+* Develop the StarkExplorerLib library to retrieve more data such as Events and Contracts.
+* Develop a GUI to allow easier user access.
+* Store retrieved data in a local cache dB and check for local presence before requesting new data.
+* Develop analysis functionality: I like the [blockchain intelligence](https://www.chainalysis.com/blockchain-intelligence/) concepts and abilities of [Chainalysis](https://www.chainalysis.com/).
+* Develop access to other Blockchains: Infura has access to Ethereum Mainnet, Polygon, Optimism and others.
 
 # Infura API key
 Stark data is fetched via the [Infura Starknet API](https://docs.infura.io/api/networks/starknet).
